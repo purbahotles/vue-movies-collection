@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "The Shawshank Redemption",
+    "director": "Frank Darabont",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.",
+    "genres": ["Drama"]
+  },
+  {
+    "id": 2,
+    "title": "The Godfather",
+    "director": "Francis Ford Coppola",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.",
+    "genres": ["Drama", "Crime"]
+  },
+  {
+    "id": 3,
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.",
+    "genres": ["Action", "Sci-Fi"]
+  },
+  {
+    "id": 4,
+    "title": "Toy Story",
+    "director": "John Lasseter",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.",
+    "genres": ["Animation", "Adventure", "Comedy"]
+  }
+]
