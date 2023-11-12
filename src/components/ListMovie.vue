@@ -1,10 +1,10 @@
 <template>
   <div>
-    <q-page class="row">
+    <q-page class="row q-pa-md q-gutter-sm">
       <q-card
         v-for="(movie, k) in movies"
         :key="k"
-        class="col-12 col-md-2 q-ma-md"
+        class="col-12 col-md-2 q-ma-md q-hoverable custom-card"
         style="max-height: 300px;"
         @click="openModal(movie.id)"
       >
@@ -38,3 +38,10 @@ const openModal = (val) => {
   emits('set-target', val);
 };
 </script>
+
+<style scoped>
+.custom-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(58, 90, 235, 0.2);
+  /* Add your preferred box-shadow styles here */
+}
+</style>

@@ -4,10 +4,18 @@
     <list-movie :movies="data" @set-target="handleMovieClick" />
 
     <q-dialog v-model="modal">
-      <detail-movie :selected-movie="selectedMovie" @close="closePopup()"/>
+      <detail-movie
+        :selected-movie="selectedMovie"
+        :get-title="titleModal"
+        :is-new="isNewMovie"
+        @close="closePopup()"
+        @create-movie="createMovie"
+        @update-movie="updateMovie"
+        @delete-movie="deleteMovie"
+      />
     </q-dialog>
     
-    <q-page-sticky position="bottom-right" @click="openPopUp" :offset="[18, 18]">
+    <q-page-sticky position="bottom-right" @click="createData" :offset="[18, 18]">
       <q-btn fab icon="add" color="accent" />
     </q-page-sticky>
   </div>
@@ -24,6 +32,7 @@ const data = ref([]);
 const titleModal = ref('');
 const modal = ref(false);
 const selectedMovie = ref(null);
+const isNewMovie = ref(false);
 
 onMounted(() => {
   data.value = DummyData;
@@ -35,14 +44,44 @@ const handleMovieClick = (id) => {
   if (selectMovie) {
     selectedMovie.value = selectMovie;
     modal.value = true
+    isNewMovie.value = false;
   }
 }
 
-const openPopUp = () => {
-  titleModal.value = 'Create Movie'
-  modal.value = true
-  selectedMovie.value = Object.assign({}, null);
-}
+const updateMovie = (updatedMovie) => {
+  const index = data.value.findIndex((movie) => movie.id === updatedMovie.id);
+  if (index !== -1) {
+    data.value.splice(index, 1, updatedMovie);
+  }
+  closePopup();
+};
+
+const deleteMovie = (id) => {
+  data.value = data.value.filter((movie) => movie.id !== id);
+  closePopup();
+};
+
+// Event handler for handling create action
+const createMovie = (newMovie) => {
+  // Add the new movie to the data array
+  data.value.push(newMovie);
+  closePopup();
+};
+
+const createData = () => {
+  titleModal.value = 'Create Movie';
+  modal.value = true;
+  // Add a new movie to the data array
+  const newMovie = {
+    id: generateUniqueId(),
+    title: 'Embed New Movie',
+    director: 'Embed New Director',
+    summary: 'Embed Movie summary',
+    genres: ['Action'],
+  };
+  selectedMovie.value = newMovie;
+  isNewMovie.value = true;
+};
 
 const closePopup = () => {
   titleModal.value = ''
@@ -50,5 +89,10 @@ const closePopup = () => {
   selectedMovie.value = Object.assign({}, null);
   modal.value = false;
 }
+
+// Function to generate a unique ID
+const generateUniqueId = () => {
+  return Date.now().toString();
+};
 
 </script>
