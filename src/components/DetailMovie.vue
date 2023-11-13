@@ -35,9 +35,14 @@
           :rules="summaryRules"
         />
 
-        <label v-for="genre in selectedMovie.genres" :key="genre" class="q-mr-xs">
-          <q-badge :label="genre" color="primary" class="col"/>
-        </label>
+        <q-toggle
+          v-for="genre in genres"
+          :key="genre"
+          size="xs"
+          v-model="selectedMovie.genres"
+          :val="genre"
+          :label="genre"
+        />
       </q-card-section>
 
       <q-separator />
@@ -75,8 +80,16 @@ const summaryRules = [
   (v) => v.length <= 100 || 'Summary must be 100 characters or less',
 ];
 
-// A predefined set of genres
-const tempGenres = ref([]);
+const genres = ref([
+  'Action',
+  'Adventure',
+  'Comedy',
+  'Drama',
+  'Fantasy',
+  'Sci-Fi',
+  'Animation',
+  'Crime'
+]);
 
 const emitMoviesEvent = () => {
   const newMovie = {

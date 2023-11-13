@@ -77,7 +77,7 @@ const createData = () => {
     title: 'Embed New Movie',
     director: 'Embed New Director',
     summary: 'Embed Movie summary',
-    genres: ['Action'],
+    genres: [],
   };
   selectedMovie.value = newMovie;
   isNewMovie.value = true;
