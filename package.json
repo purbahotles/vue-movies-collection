@@ -20,7 +20,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
-    "vite": "^4.4.5"
+    "vite": "^4.5.2"
   },
   "description": "## Getting Started",
   "main": "vite.config.js",
